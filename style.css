@@ -20,13 +20,13 @@ button {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #353f69;
     color: white;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #353f69;
 }
 
 /* Style the status message */
