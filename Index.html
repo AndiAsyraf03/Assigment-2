@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        const users = [
+            { username: "user1", password: "pass1" },
+            { username: "user2", password: "pass2" },
+            { username: "user3", password: "pass3" },
+        ];
+
+        function isLoggedIn(username, password) {
+            const user = users.find((user) => user.username === username && user.password === password);
+            return user ? true : false;
+        }
+
+        function displayStatus(username) {
+            const status = document.getElementById("status");
+            status.innerHTML = `User ${username} is ${isLoggedIn(username, "pass1") ? "logged in" : "not logged in"}`;
+        }
+
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            displayStatus(username);
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
